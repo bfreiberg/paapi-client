@@ -1,7 +1,0 @@
-target/classes
-target/jaxws
-target/maven-status
-target/test-classes
-.settings/
-.classpath
-.project
