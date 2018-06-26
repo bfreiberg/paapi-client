@@ -62,15 +62,44 @@ public class PaapiClientImpl implements PaapiClient {
         checkArgs(marketplace, accessKeyId, secretAccessKey, tag);
         final AWSECommerceService service = new AWSECommerceService();
         service.setHandlerResolver(new AwsHandlerResolver(secretAccessKey));
-        final AWSECommerceServicePortType port = service.getAWSECommerceServicePortDE();
+        final AWSECommerceServicePortType port = getPortForMarketplace(marketplace, service);
         // Create param holder with default values
         params = new PaapiParams(true, false);
         // Create handlers
-        itemHandler = new ItemRequestHandler(marketplace, accessKeyId, tag, port);
-        browseNodeHandler = new BrowseNodeRequestHandler(marketplace, accessKeyId, tag, port);
-        cartHandler = new CartRequestHandler(marketplace, accessKeyId, tag, port);
+        itemHandler = new ItemRequestHandler(null, accessKeyId, tag, port);
+        browseNodeHandler = new BrowseNodeRequestHandler(null, accessKeyId, tag, port);
+        cartHandler = new CartRequestHandler(null, accessKeyId, tag, port);
 
         LOG.debug("Create PaapiClient for {} - {} - {}", marketplace, accessKeyId, tag);
+    }
+
+    private static AWSECommerceServicePortType getPortForMarketplace(final String marketplace,
+            final AWSECommerceService service) {
+        switch (marketplace.toUpperCase()) {
+        case "CA":
+            return service.getAWSECommerceServicePortCA();
+        case "CN":
+            return service.getAWSECommerceServicePortCN();
+        case "DE":
+            return service.getAWSECommerceServicePortDE();
+        case "ES":
+            return service.getAWSECommerceServicePortES();
+        case "FR":
+            return service.getAWSECommerceServicePortFR();
+        case "IN":
+            return service.getAWSECommerceServicePortIN();
+        case "IT":
+            return service.getAWSECommerceServicePortIT();
+        case "JP":
+            return service.getAWSECommerceServicePortJP();
+        case "UK":
+            return service.getAWSECommerceServicePortUK();
+        case "US":
+            return service.getAWSECommerceServicePortUS();
+        default:
+            throw new IllegalArgumentException(marketplace
+                    + " is not a valid marketplace identifier. Possible values are [CA,CN,DE,ES,FR,IN,IT,JP,UK,US]");
+        }
     }
 
     private static void checkArgs(final String marketplace, final String accessKeyId, final String secretAccessKeyId,
