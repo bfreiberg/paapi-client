@@ -1,11 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cc.freiberg</groupId>
 	<artifactId>paapi-client</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.9.1-SNAPSHOT</version>
 	<name>paapi-client</name>
 
 	<url>https://github.com/bfreiberg/paapi-client</url>
@@ -113,6 +111,7 @@
 				<version>${version.maven-javadoc-plugin}</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
+					<excludePackageNames>com.ecs.*</excludePackageNames>
 				</configuration>
 				<executions>
 					<execution>
