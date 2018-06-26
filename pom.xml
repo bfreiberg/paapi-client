@@ -28,7 +28,7 @@
 		<url>git@github.com:bfreiberg/paapi-client.git</url>
 		<connection>scm:git:git@github.com:bfreiberg/paapi-client.git</connection>
 		<developerConnection>scm:git:git@github.com::bfreiberg/paapi-client.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>master</tag>
 	</scm>
 
 	<distributionManagement>
