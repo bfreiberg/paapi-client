@@ -11,7 +11,7 @@ Amazon Product Advertising API Client extension
 # Usage
 `cc.freiberg.paapi.client.PaapiClientImpl` is the main class to send requests to AWS. The constructor needs all of the following properties:
 
-- Marketplace (e.g. `www.amazon.de`)
+- Marketplace (e.g. `DE`,`US` etc)
 - Access Key Id
 - Secret Access Key
 - Associate Tag (e.g. `freiberg-123`)
