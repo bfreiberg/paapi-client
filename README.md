@@ -21,7 +21,7 @@ Amazon Product Advertising API Client extension
 ## Initialization
 ```java
 final String accessKeyId = "<YOUR_ACCESS_KEY_ID>";
-final String endpoint = "www.amazon.de";
+final String endpoint = DE";
 final String secretAccessKeyId = "<YOUR_SECRET_ACCESS_KEY>";
 final String tag = "<YOUR_TAG>";
 final PaapiClient client = new PaapiClientImpl(endpoint, accessKeyId, secretAccessKeyId, tag);
