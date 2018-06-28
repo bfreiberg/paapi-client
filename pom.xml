@@ -3,7 +3,7 @@
 
 	<groupId>cc.freiberg</groupId>
 	<artifactId>paapi-client</artifactId>
-	<version>0.9.7-SNAPSHOT</version>
+	<version>0.9.7</version>
 	<name>paapi-client</name>
 
 	<url>https://github.com/bfreiberg/paapi-client</url>
@@ -28,7 +28,7 @@
 		<url>git@github.com:bfreiberg/paapi-client.git</url>
 		<connection>scm:git:git@github.com:bfreiberg/paapi-client.git</connection>
 		<developerConnection>scm:git:git@github.com::bfreiberg/paapi-client.git</developerConnection>
-		<tag>master</tag>
+		<tag>paapi-client-0.9.7</tag>
 	</scm>
 
 	<distributionManagement>
