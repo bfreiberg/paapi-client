@@ -57,6 +57,10 @@ public class PaapiClientImpl implements PaapiClient {
     private final BrowseNodeRequestHandler browseNodeHandler;
     private final CartRequestHandler cartHandler;
 
+    public PaapiClientImpl() {
+        this(AWSConfig.getMarketplace(), AWSConfig.getAccesKey(), AWSConfig.getSecretKey(), AWSConfig.getTag());
+    }
+
     public PaapiClientImpl(final String marketplace, final String accessKeyId, final String secretAccessKey,
             final String tag) {
         checkArgs(marketplace, accessKeyId, secretAccessKey, tag);
