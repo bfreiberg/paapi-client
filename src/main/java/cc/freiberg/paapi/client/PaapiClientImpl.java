@@ -223,15 +223,16 @@ public class PaapiClientImpl implements PaapiClient {
                 result = wrapper.call();
                 break;
             } catch (final WebServiceException e) {
+                LOG.warn("Product Advertising API currently unavailable: {}", e.getMessage());
                 // Only retry on 503 errors
                 if (e.getMessage().contains("503")) {
-                    LOG.warn("Product Advertising API currently unavailable.", e);
                     if (retry < retryMax) {
-                        LOG.debug("Running retry attempt {}/{}", ++retry, retryMax, e);
+                        LOG.info("Running retry attempt {}/{}", ++retry, retryMax);
                     } else {
                         break;
                     }
                     try {
+                        LOG.info("Sleeping {} ms", retryIntervallMillis * retry);
                         TimeUnit.MILLISECONDS.sleep(retryIntervallMillis * retry);
                     } catch (final InterruptedException ie) {
                         break;
