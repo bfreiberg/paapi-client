@@ -33,7 +33,7 @@ public class AWSConfig {
 
     private static final String AMAZON_BUNDLE = "amazon";
 
-    private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(AMAZON_BUNDLE);
+    private static ResourceBundle resource_bundle;
 
     private AWSConfig() {
     }
@@ -60,9 +60,12 @@ public class AWSConfig {
             return System.getenv(key);
         }
         try {
-            return RESOURCE_BUNDLE.getString(key);
+            if (resource_bundle == null) {
+                resource_bundle = ResourceBundle.getBundle(AMAZON_BUNDLE);
+            }
+            return resource_bundle.getString(key);
         } catch (final MissingResourceException e) {
-            LOG.error("Missing property {}", key, e);
+            LOG.error("Could not find property {}", key, e);
             return null;
         }
     }
