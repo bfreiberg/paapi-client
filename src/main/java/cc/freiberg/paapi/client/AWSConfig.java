@@ -56,8 +56,12 @@ public class AWSConfig {
 
     private static String getValue(final String key) {
         // Check environment variables first
-        if (System.getenv(key.substring(key.lastIndexOf("."))) != null) {
-            return System.getenv(key);
+        try {
+            if (System.getenv(key.substring(key.lastIndexOf(".") + 1)) != null) {
+                return System.getenv(key);
+            }
+        } catch (final IndexOutOfBoundsException e) {
+            LOG.warn("Substring index out of bounds for {}", key);
         }
         try {
             if (resource_bundle == null) {
