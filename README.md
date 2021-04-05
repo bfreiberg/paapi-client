@@ -1,6 +1,10 @@
-Amazon Product Advertising API Client extension
+[Deprecated] Amazon Product Advertising API Client extension
 ==========
 **paapi-client** is a library for Amazon's Product Advertising API. 
+
+:warning: **This client was written for an older version of the Product Advertising API and is no longer maintained.**
+
+Please check https://webservices.amazon.com/paapi5/documentation/ for the current version 
 
 # Features
 * supports all of the SOAP API operations using JAX-WS
